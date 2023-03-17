@@ -2,6 +2,8 @@ import Head from "next/head";
 import React from "react";
 import cities from "../../lib/city.list.json";
 import TodaysWeather from "@/components/TodaysWeather";
+import moment from "moment-timezone";
+import HourlyWeather from "@/components/HourlyWeather";
 
 export async function getServerSideProps(context) {
   const city = getCityId(context.params.city);
@@ -24,13 +26,12 @@ export async function getServerSideProps(context) {
     };
   }
 
-  // const slug = context.params.city;
-
-  const hourlyWeather = getHourlyWeather(data.hourly);
+  const hourlyWeather = getHourlyWeather(data.hourly, data.timezone);
 
   return {
     props: {
       city: city,
+      timezone: data.timezone,
       currentWeather: data.current,
       dailyWeather: data.daily,
       hourlyWeather: hourlyWeather,
@@ -56,17 +57,11 @@ const getCityId = (param) => {
   }
 };
 
-const getHourlyWeather = (hourlyData) => {
-  const current = new Date();
-  current.setHours(current.getHours(), 0, 0, 0);
-  const tomorrow = new Date(current);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  tomorrow.setHours(0, 0, 0, 0);
+const getHourlyWeather = (hourlyData, timezone) => {
+  const endOfDay = moment().tz(timezone).endOf("day").valueOf();
+  const endTimeStamp = Math.floor(endOfDay / 1000);
 
-  const currentTimeStamp = Math.floor(current.getTime() / 1000);
-  const tomorrowTimeStamp = Math.floor(tomorrow.getTime() / 1000);
-
-  const todayData = hourlyData.filter((data) => data.dt < tomorrowTimeStamp);
+  const todayData = hourlyData.filter((data) => data.dt < endTimeStamp);
 
   return todayData;
 };
@@ -76,6 +71,7 @@ export default function City({
   currentWeather,
   dailyWeather,
   hourlyWeather,
+  timezone,
 }) {
   return (
     <div>
@@ -85,7 +81,12 @@ export default function City({
 
       <div className="page-wrapper">
         <div className="container">
-          <TodaysWeather city={city} weather={dailyWeather[0]} lang="pt-BR" />
+          <TodaysWeather
+            city={city}
+            weather={dailyWeather[0]}
+            timezone={timezone}
+          />
+          <HourlyWeather hourlyWeather={hourlyWeather} timezone={timezone} />
         </div>
       </div>
     </div>
