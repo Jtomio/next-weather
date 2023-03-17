@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
@@ -16,10 +17,12 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap"
             rel="stylesheet"
           ></link>
+          <link rel="icon" href="/favicon.png" />
         </Head>
         <body>
           <Main />
           <NextScript />
+          <Footer />
         </body>
       </Html>
     );

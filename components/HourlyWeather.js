@@ -3,8 +3,6 @@ import Image from "next/image";
 import moment from "moment-timezone";
 
 export default function HourlyWeather({ hourlyWeather, timezone }) {
-  console.log(hourlyWeather);
-  console.log(timezone);
   return (
     <div className="hourly">
       <div className="hourly__inner">

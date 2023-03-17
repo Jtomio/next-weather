@@ -4,6 +4,9 @@ import cities from "../../lib/city.list.json";
 import TodaysWeather from "@/components/TodaysWeather";
 import moment from "moment-timezone";
 import HourlyWeather from "@/components/HourlyWeather";
+import WeeklyWeather from "@/components/WeeklyWeather";
+import { SearchBox } from "@/components/SearchBox";
+import Link from "next/link";
 
 export async function getServerSideProps(context) {
   const city = getCityId(context.params.city);
@@ -81,12 +84,17 @@ export default function City({
 
       <div className="page-wrapper">
         <div className="container">
+          <Link href="/" className="back-link">
+            &larr; Voltar
+          </Link>
+          <SearchBox placeholder="Pesquise por sua cidade..." />
           <TodaysWeather
             city={city}
             weather={dailyWeather[0]}
             timezone={timezone}
           />
           <HourlyWeather hourlyWeather={hourlyWeather} timezone={timezone} />
+          <WeeklyWeather weeklyWeather={dailyWeather} timezone={timezone} />
         </div>
       </div>
     </div>

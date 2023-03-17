@@ -39,6 +39,17 @@ h6 {
   margin-top: 0;
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__image {
+    margin-bottom: 2rem;
+  }
+}
+
 .page-wrapper {
   margin: 50px 0;
 
@@ -235,7 +246,7 @@ h6 {
       padding-right: 15px;
 
       &:first-child {
-        min-width: 161px;
+        min-width: 165px;
       }
     }
 
@@ -393,6 +404,7 @@ h6 {
     flex: 0 0 25%;
     padding-left: 15px;
     padding-right: 15px;
+    text-align: center;
 
     a {
       display: block;
@@ -423,10 +435,12 @@ h6 {
 
   &__image-wrapper {
     position: relative;
-    padding-bottom: 125%;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 10px;
+    padding-top: 2%;
+    border-radius: 6px;
+
+    object-fit: cover;
+
+
 
     img {
       transition: all 0.3s ease;
@@ -513,4 +527,20 @@ h6 {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    width: 100%;
+  max-width: 800px;
+  // position: fixed;
+  margin: 0 auto ;
+  bottom: 0;
+  border-top: 1px solid $primary;
+  padding-top: 1rem;
+
+
 }

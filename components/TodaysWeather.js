@@ -22,7 +22,7 @@ export default function TodaysWeather({ city, weather, timezone }) {
               </span>
             </div>
             <div>
-              <span>Por do sol</span>
+              <span>Pôr do sol</span>
               <span>
                 {moment.unix(weather.sunset).tz(timezone).format("LT")}
               </span>
@@ -34,7 +34,7 @@ export default function TodaysWeather({ city, weather, timezone }) {
             <div>
               <Image
                 src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-                alt="Weather icon"
+                alt={weather.weather[0].description}
                 width={120}
                 height={120}
               />
