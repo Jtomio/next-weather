@@ -435,9 +435,9 @@ h6 {
 
   &__image-wrapper {
     position: relative;
-    padding-top: 2%;
-    border-radius: 6px;
 
+    border-radius: 6px;
+    border: 1px solid $secondary;
     object-fit: cover;
 
 
@@ -532,15 +532,13 @@ h6 {
 .footer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-    width: 100%;
-  max-width: 800px;
-  // position: fixed;
-  margin: 0 auto ;
-  bottom: 0;
   border-top: 1px solid $primary;
+  max-width: 800px;
+  margin: 0 auto;
+  // bottom: 0;
   padding-top: 1rem;
+
 
 
 }
