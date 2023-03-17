@@ -27,6 +27,10 @@ export default function TodaysWeather({ city, weather, timezone }) {
                 {moment.unix(weather.sunset).tz(timezone).format("LT")}
               </span>
             </div>
+            <div>
+              <span>Vento</span>
+              <span>{weather.wind_speed} m/s</span>
+            </div>
           </div>
         </div>
         <div className="today__right-content">
