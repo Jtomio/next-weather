@@ -2,10 +2,13 @@
   "name": "next-weather",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start node ./pages/index.js",
     "lint": "next lint"
   },
   "dependencies": {
