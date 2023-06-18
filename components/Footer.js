@@ -19,7 +19,7 @@ export default function Footer() {
         </Link>
       </div>
       <div className="footer__text">
-        <p>&copy 2023 | Desenvolvido para Brigada Emergência - Tupy S.A</p>
+        <p> &copy;2023 | Desenvolvido para Brigada Emergência - Tupy S.A</p>
       </div>
     </div>
   );
