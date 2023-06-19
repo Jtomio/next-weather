@@ -30,7 +30,7 @@ export default function TodaysWeather({ city, weather, timezone }) {
             </div>
             <div>
               <span>Vento</span>
-              <span>{(weather.wind_speed * 3.6)} km/h</span>
+              <span>{(weather.wind_speed * 3.6).toFixed(0)} km/h</span>
             </div>
           </div>
         </div>
