@@ -3,6 +3,7 @@ import moment from "moment-timezone";
 import Image from "next/image";
 
 export default function TodaysWeather({ city, weather, timezone }) {
+
   return (
     <div className="today">
       <div className="today__inner">
@@ -29,7 +30,7 @@ export default function TodaysWeather({ city, weather, timezone }) {
             </div>
             <div>
               <span>Vento</span>
-              <span>{weather.wind_speed} m/s</span>
+              <span>{(weather.wind_speed * 3.6)} km/h</span>
             </div>
           </div>
         </div>

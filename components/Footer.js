@@ -13,7 +13,7 @@ export default function Footer() {
             src={ImgFooter}
             alt="Logo Tomio imagem"
             width={100}
-            height={50}
+            height={40}
             className="footer__image"
           />
         </Link>
