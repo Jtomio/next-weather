@@ -1,4 +1,5 @@
 import moment from "moment-timezone";
+import 'moment/locale/pt-br'
 import Image from "next/image";
 import React from "react";
 
@@ -20,7 +21,7 @@ export default function WeeklyWeather({ weeklyWeather, timezone }) {
                 <div className="weekly__left-content">
                   <div>
                     <h3>
-                      {moment.unix(weather.dt).tz(timezone).format("dddd")}
+                      {moment.unix(weather.dt).tz(timezone).locale('pt-br').format("dddd")}
                     </h3>
                     <h4>
                       <span>{weather.temp.max.toFixed(0)}&deg;C</span>
